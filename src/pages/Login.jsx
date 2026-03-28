@@ -1,12 +1,14 @@
 import { useState } from 'react';
-import users from '../data/users.json';
+import { useNavigate } from 'react-router-dom';
 
+import users from '../data/users.json';
 import style from './Login.module.css';
 
 function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const navigate = useNavigate();
     // handle login
     const handleLogin = () => {
         const user = users.find(
@@ -16,12 +18,11 @@ function Login() {
                 u.password === password
         );
 
-        // check if user exists
-        if (user) {
-            alert('Login successful');
+        if (user){
             localStorage.setItem("user", JSON.stringify(user));
+            navigate('/ToDoList');
         } else {
-            alert('Login failed');
+            alert('Invalid username or password');
         }
     };
 
