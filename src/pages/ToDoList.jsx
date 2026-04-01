@@ -5,7 +5,7 @@ import style from './ToDoList.module.css';
 
 function ToDoList() {
 
-    const [tasks, setTasks] = useState(["choi voi pe tram", "task2", "task3"]);
+    const [tasks, setTasks] = useState(["task1", "task2", "task3"]);
     const [newTask, setNewTask] = useState('');
 
     function handleInputChange(event) {
